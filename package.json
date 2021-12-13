@@ -1,0 +1,29 @@
+{
+  "name": "bundlers",
+  "browserslist": "> 0.25%, not dead",
+  "scripts": {
+    "start": "parcel serve ./src/index.html --open",
+    "build": "npm run clean && parcel build ./src/index.html --dist-dir ./out --no-source-maps",
+    "clean": "rm -rf ./.parcel-cache ./dist ./out",
+    "serve": "live-server ./out",
+    "deploy": "surge ./out --domain https://PUT_YOUR_SURGE_DOMAIN_HERE"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@parcel/transformer-sass": "^2.0.1",
+    "autoprefixer": "^10.2.6",
+    "parcel": "^2.0.1",
+    "postcss": "^8.3.0",
+    "posthtml-include": "^1.7.1",
+    "sharp": "^0.29.3"
+  },
+  "dependencies": {
+    "@parcel/babel-preset-env": "^2.0.0-alpha.3",
+    "@reduxjs/toolkit": "^1.6.2",
+    "axios": "^0.24.0",
+    "bulma": "^0.9.3",
+    "bulma-calendar": "^6.1.15",
+    "chart.js": "^3.6.2",
+    "redux-logger": "^3.0.6"
+  }
+}
