@@ -22,11 +22,10 @@ class Form {
       "beforeend",
       `
     <form class="form" action="">
-      
+    <div class="field is-grouped">
       <div class="control is-expanded">
       <input class="input is-medium search" type="text" placeholder="Search a wikipedia page">
       </div>
-      <div class="field is-grouped">
       <div class="control">
         <div class="select is-medium views">
           <select>
@@ -35,16 +34,38 @@ class Form {
           </select>
       </div>
       </div>
-      <div class="control">
-      <input class="input is-medium startdate" type="date" />
       </div>
+      <div class="field is-grouped">
+      <div class="field is-horizontal">
+      <div class="field-label is-normal">
+      <label class="label">From</label>
+      </div>
+      <div class="field-body">
+      <div class="field is-narrow">
+      <div class="control">
+      <input class="input is-medium is-fullwidth startdate" type="date" />
+      </div>
+      </div>
+      </div>
+      </div>     
+      <div class="field is-horizontal">
+      <div class="field-label is-normal">
+      <label class="label">Until</label>
+      </div>
+      <div class="field-body">
+      <div class="field is-narrow">
       <div class="control">
       <input class="input is-medium enddate" type="date" />
+      </div>
+      </div>
+      </div>
       </div>
       <div class="control is-expanded">
       <button type="submit" class="button is-primary is-medium is-fullwidth">Submit</button>
       </div>
       </div>
+      
+      
     </form>
       `
     );

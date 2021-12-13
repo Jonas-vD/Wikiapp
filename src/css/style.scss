@@ -17,6 +17,7 @@ main {
   header {
     padding: 30px;
     margin-bottom: 30px;
+
     h1 {
       text-transform: uppercase;
       font-size: 30px;
@@ -30,15 +31,15 @@ main {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 40px;
-    .info {
+    .info,
+    .chart {
       background-color: white;
       box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
       padding: 25px;
-      height: fit-content;
     }
-    .chart {
-      background-color: green;
+    .info {
+      display: flex;
     }
   }
 }

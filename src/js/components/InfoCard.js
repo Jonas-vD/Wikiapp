@@ -19,14 +19,44 @@ class InfoCard {
       "beforeend",
       `
     <div class="info__card">
-    <h2>Article Name</h2>
-        <p class="name"><p>
-        <h2>Total views</h2>
-        <p class="totalviews">0</p>
-        <h2>Most views on a day</h2>
-        <p class="mostviews">0</p>
-        <h2>Link to page</h2>
-        <a class="wikilink" href="#URL"></a>
+        
+        <div>
+        <p>Article Name</p>
+        <span>
+        <svg class="icon icon-newspaper">
+        <use href="#icon-newspaper"></use>
+        </svg>
+        </span>
+        <h2 class="name">&nbsp</h2>
+        </div>
+        <div>
+        <p>Total views</p>
+        <span>
+        <svg class="icon icon-eye">
+        <use href="#icon-eye"></use>
+        </svg>
+        </span>
+        <h2 class="totalviews">0</h2>
+        </div>
+        <div>
+        <p>Most views on a day</p>
+        <span>
+        <svg class="icon icon-trophy">
+        <use href="#icon-trophy"></use>
+        </svg>
+        </span>
+        <h2 class="mostviews">0</h2>
+        </div>
+        <div class="wikilink">
+        <p>Link to page</p>
+        <span>
+        <svg class="icon icon-sphere">
+        <use href="#icon-sphere"></use>
+        </svg>
+        </span>
+        
+        </div>
+        
     </div>
     `
     );
@@ -53,11 +83,13 @@ class InfoCard {
     this.articleName.innerHTML = `${articleNames[0]}`;
     this.totalViews.innerHTML = `${totalViews}`;
     this.mostViews.innerHTML = `${mostViews}`;
+    this.urlPage.insertAdjacentHTML(
+      "beforeend",
+      `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}">en.wikipedia.org/wiki/${articleNames[0]}</a>`
+    );
   }
   styling() {
-    const cardStyles = {
-      textTransform: "Uppercase",
-    };
+    const cardStyles = {};
     Object.assign(this.card.style, cardStyles);
   }
 }

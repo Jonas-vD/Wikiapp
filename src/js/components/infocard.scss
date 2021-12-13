@@ -1,8 +1,24 @@
+@use "../../icons/style.css";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 .info__card {
-  h2 {
-    font-family: "Bebas Neue", cursive;
-    font-size: 24px;
+  div {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    grid-column-gap: 10px;
+    margin-bottom: 20px;
+    p {
+      grid-column: span 2;
+    }
+    h2,
+    a {
+      font-family: "Bebas Neue", cursive;
+      font-size: 30px;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
