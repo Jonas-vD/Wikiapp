@@ -69,6 +69,8 @@ class InfoCard {
   events() {}
   render() {
     const articleNames = store.getState().data.map((obj) => obj.article);
+    const articleName = articleNames[0];
+    console.log(articleName);
     const totalViews = store
       .getState()
       .data.map((obj) => obj.views)
@@ -80,13 +82,24 @@ class InfoCard {
       .data.map((obj) => obj.views)
       .sort((a, b) => b - a)[0];
 
-    this.articleName.innerHTML = `${articleNames[0]}`;
     this.totalViews.innerHTML = `${totalViews}`;
     this.mostViews.innerHTML = `${mostViews}`;
+    this.articleName.innerHTML = `${articleName}`;
+
     this.urlPage.insertAdjacentHTML(
       "beforeend",
-      `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}">en.wikipedia.org/wiki/${articleNames[0]}</a>`
+      `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">en.wikipedia.org/wiki/${articleNames[0]}</a>`
     );
+
+    const { data, countries, months, loading, error } = store.getState();
+
+    if (loading) {
+      this.articleName.style.display = "none";
+      this.urlPage.style.display = "none";
+    } else {
+      this.articleName.style.display = "";
+      this.urlPage.style.display = "";
+    }
   }
   styling() {
     const cardStyles = {};

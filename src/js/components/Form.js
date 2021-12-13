@@ -101,7 +101,14 @@ class Form {
       const searchViews = this.selectViews
         .querySelector("select")
         .value.toLowerCase();
-      const searchValue = this.searchValue.value;
+      const searchValue = this.searchValue.value
+        .split(" ")
+        .map(
+          (value) =>
+            value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
+        )
+        .join("_");
+      console.log(searchValue);
       const startDate = this.startDate.value.replaceAll("-", "");
       const endDate = this.endDate.value.replaceAll("-", "");
       store.dispatch(
