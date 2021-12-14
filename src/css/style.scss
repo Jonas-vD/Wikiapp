@@ -17,6 +17,11 @@ main {
   header {
     padding: 30px;
     margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     h1 {
       text-transform: uppercase;
@@ -26,10 +31,19 @@ main {
       font-family: "Bebas Neue", cursive;
       font-size: 36px;
     }
+    .logo {
+      width: 400px;
+      height: 225px;
+      background-image: url("../images/Logo_wikiviews.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
   }
   section {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    padding: 0 60px;
     gap: 40px;
     .info,
     .chart {

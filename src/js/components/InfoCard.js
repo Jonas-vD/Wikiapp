@@ -70,7 +70,7 @@ class InfoCard {
   render() {
     const articleNames = store.getState().data.map((obj) => obj.article);
     const articleName = articleNames[0];
-    console.log(articleName);
+
     const totalViews = store
       .getState()
       .data.map((obj) => obj.views)
@@ -86,10 +86,7 @@ class InfoCard {
     this.mostViews.innerHTML = `${mostViews}`;
     this.articleName.innerHTML = `${articleName}`;
 
-    this.urlPage.insertAdjacentHTML(
-      "beforeend",
-      `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">en.wikipedia.org/wiki/${articleNames[0]}</a>`
-    );
+    this.urlPage.innerHTML = `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">en.wikipedia.org/wiki/${articleNames[0]}</a>`;
 
     const { data, countries, months, loading, error } = store.getState();
 

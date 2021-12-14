@@ -1,14 +1,26 @@
 .form {
+  width: 90%;
   .input {
-    margin-bottom: 20px;
   }
   .field.is-horizontal {
     display: flex;
     margin-right: 20px;
+    align-items: center;
   }
   .field.is-grouped {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+  .errorinput,
+  .errorstartdate,
+  .errorenddate {
+    display: none;
+  }
+  .button.is-primary.is-medium.is-fullwidth.submitform {
+    background-color: #86cddc;
+    &:hover {
+      background-color: #60a6b4;
+    }
   }
 }

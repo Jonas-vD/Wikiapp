@@ -12,6 +12,7 @@ class Form {
     this.endDate;
     this.form;
     this.buttonRef;
+    this.btnCancel;
     this.styling();
     this.events();
     this.render();
@@ -25,6 +26,7 @@ class Form {
     <div class="field is-grouped">
       <div class="control is-expanded">
       <input class="input is-medium search" type="text" placeholder="Search a wikipedia page">
+      <p class="help is-danger errorinput">Please enter a valid search term</p>
       </div>
       <div class="control">
         <div class="select is-medium views">
@@ -43,10 +45,12 @@ class Form {
       <div class="field-body">
       <div class="field is-narrow">
       <div class="control">
-      <input class="input is-medium is-fullwidth startdate" type="date" />
+      <input class="input is-medium is-fullwidth startdate" type="date" />  
+      <p class="help is-danger errorstartdate">Please enter a valid date</p> 
       </div>
+      </div> 
       </div>
-      </div>
+      
       </div>     
       <div class="field is-horizontal">
       <div class="field-label is-normal">
@@ -56,15 +60,20 @@ class Form {
       <div class="field is-narrow">
       <div class="control">
       <input class="input is-medium enddate" type="date" />
+      <p class="help is-danger errorenddate">Please enter a valid date</p>
       </div>
       </div>
-      </div>
-      </div>
-      <div class="control is-expanded">
-      <button type="submit" class="button is-primary is-medium is-fullwidth">Submit</button>
       </div>
       </div>
       
+      <div class="control is-expanded">
+      <button type="submit" class="button is-primary is-medium is-fullwidth submitform">Search</button>
+      </div>
+      <div class="control">
+    <button type="button" class="button is-link is-light is-medium cancelform">Cancel</button>
+  </div>
+      
+      </div>
       
     </form>
       `
@@ -74,18 +83,26 @@ class Form {
     this.input = this.holder.querySelector(".input");
     this.buttonRef = this.form.querySelector(".button.is-primary");
     this.selectViews = this.form.querySelector(".views");
-    this.searchValue = this.form.querySelector(".search");
+    this.searchBar = this.form.querySelector(".search");
     this.startDate = this.form.querySelector(".startdate");
     this.endDate = this.form.querySelector(".enddate");
+    this.btnCancel = this.form.querySelector(".cancelform");
   }
   render() {
     const { data, countries, months, loading, error } = store.getState();
-
+    //loading
     if (loading) {
       this.buttonRef.classList.add("is-loading");
     } else {
       this.buttonRef.classList.remove("is-loading");
     }
+    //error
+    if (error) {
+      console.log("error");
+    } else {
+      console.log("succes");
+    }
+    //set date datepickers
     const today =
       new Date().getFullYear() +
       "-" +
@@ -96,30 +113,62 @@ class Form {
     this.endDate.setAttribute("max", today);
   }
   events() {
+    //formsubmit
     this.form.onsubmit = (e) => {
       e.preventDefault();
       const searchViews = this.selectViews
         .querySelector("select")
         .value.toLowerCase();
-      const searchValue = this.searchValue.value
+      const searchValue = this.searchBar.value
         .split(" ")
         .map(
           (value) =>
             value.charAt(0).toUpperCase() + value.slice(1).toLowerCase()
         )
         .join("_");
-      console.log(searchValue);
+
       const startDate = this.startDate.value.replaceAll("-", "");
       const endDate = this.endDate.value.replaceAll("-", "");
-      store.dispatch(
-        getData({
-          page: searchValue,
-          view: searchViews,
-          start: startDate,
-          end: endDate,
-        })
-      );
-      console.log(searchViews, searchValue, startDate, endDate);
+
+      if (searchValue && searchViews && startDate && endDate) {
+        store.dispatch(
+          getData({
+            page: searchValue,
+            view: searchViews,
+            start: startDate,
+            end: endDate,
+          })
+        );
+      }
+      //error searchBar
+      if (searchValue === "") {
+        this.searchBar.classList.add("is-danger");
+        this.form.querySelector(".errorinput").style.display = "block";
+      } else {
+        this.searchBar.classList.remove("is-danger");
+        this.form.querySelector(".errorinput").style.display = "none";
+      }
+      //error Datepickers
+      if (startDate === "") {
+        this.startDate.classList.add("is-danger");
+        this.form.querySelector(".errorstartdate").style.display = "block";
+      }
+      if (endDate === "") {
+        this.endDate.classList.add("is-danger");
+        this.form.querySelector(".errorenddate").style.display = "block";
+      } else {
+        this.startDate.classList.remove("is-danger");
+        this.endDate.classList.remove("is-danger");
+        this.form.querySelector(".errorstartdate").style.display = "none";
+        this.form.querySelector(".errorenddate").style.display = "none";
+      }
+
+      this.form.reset();
+    };
+
+    //cancelbtn form
+    this.btnCancel.onclick = (e) => {
+      e.preventDefault();
       this.form.reset();
     };
   }
