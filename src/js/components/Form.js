@@ -139,6 +139,7 @@ class Form {
             end: endDate,
           })
         );
+        this.form.reset();
       }
       //error searchBar
       if (searchValue === "") {
@@ -162,8 +163,6 @@ class Form {
         this.form.querySelector(".errorstartdate").style.display = "none";
         this.form.querySelector(".errorenddate").style.display = "none";
       }
-
-      this.form.reset();
     };
 
     //cancelbtn form

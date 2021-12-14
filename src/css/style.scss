@@ -43,7 +43,6 @@ main {
   section {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding: 0 60px;
     gap: 40px;
     .info,
     .chart {
