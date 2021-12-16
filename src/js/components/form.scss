@@ -1,16 +1,23 @@
 .form {
   width: 100%;
-  .input {
-  }
+
   .field.is-horizontal {
     display: flex;
     margin-right: 20px;
     align-items: center;
+    .field-label.is-normal {
+      margin-right: 20px;
+    }
   }
   .field.is-grouped {
     display: flex;
     justify-content: flex-start;
-    flex-wrap: wrap;
+    .control {
+      .button.is-link.is-light {
+        background-color: rgb(250, 52, 92);
+        color: white;
+      }
+    }
   }
   .errorinput,
   .errorstartdate,
@@ -21,6 +28,55 @@
     background-color: #86cddc;
     &:hover {
       background-color: #60a6b4;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  form {
+    .field.is-grouped {
+      .field.is-horizontal {
+        width: 100%;
+        margin-right: unset;
+        .field-body {
+          flex-basis: 100%;
+          .field.is-narrow {
+            flex-basis: 100%;
+          }
+        }
+      }
+    }
+    .field.is-grouped {
+      flex-wrap: wrap;
+      margin-right: unset;
+    }
+  }
+}
+
+@media screen and (max-width: 455px) {
+  form {
+    .field.is-grouped {
+      .field.is-horizontal {
+        display: flex;
+        margin-right: 0px;
+        align-items: center;
+      }
+      > .control {
+        width: 100%;
+        .button.is-link.is-light {
+          width: 100%;
+        }
+      }
+    }
+    .field.is-grouped > .control.is-expanded {
+      flex-grow: 1;
+      flex-shrink: 1;
+      width: 100%;
+      margin-right: 0;
+    }
+    .field.is-grouped > .control:not(:last-child) {
+      margin-bottom: 10px;
+      margin-right: 0;
     }
   }
 }

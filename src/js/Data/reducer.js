@@ -6,7 +6,7 @@ export const getData = createAsyncThunk(
   async ({ page, view, start, end }) =>
     (
       await axios(
-        `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/${page}/${view}/${start}/${end}`
+        `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/${page}/daily/${start}/${end}`
       )
     ).data
 );

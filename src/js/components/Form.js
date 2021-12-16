@@ -28,14 +28,7 @@ class Form {
       <input class="input is-medium search" type="text" placeholder="Search a wikipedia page">
       <p class="help is-danger errorinput">Please enter a valid search term</p>
       </div>
-      <div class="control">
-        <div class="select is-medium views">
-          <select>
-            <option value="Daily" selected>Daily</option>
-            <option value="Monthly">Monthly</option>
-          </select>
-      </div>
-      </div>
+      
       </div>
       <div class="field is-grouped">
       <div class="field is-horizontal">
