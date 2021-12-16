@@ -1,3 +1,9 @@
+@use "../../css/base/mixins" as *;
+@use "../../css/base/variables" as *;
+@use "../../css/base/reset";
+@use "../../css/base/fonts";
+@use "../../icons/style.css";
+
 .form {
   width: 100%;
 
@@ -14,8 +20,8 @@
     justify-content: flex-start;
     .control {
       .button.is-link.is-light {
-        background-color: rgb(250, 52, 92);
-        color: white;
+        background-color: $red;
+        color: $white;
       }
     }
   }
@@ -25,9 +31,9 @@
     display: none;
   }
   .button.is-primary.is-medium.is-fullwidth.submitform {
-    background-color: #86cddc;
+    background-color: $blue;
     &:hover {
-      background-color: #60a6b4;
+      background-color: $blue;
     }
   }
 }

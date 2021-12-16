@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const getData = createAsyncThunk(
   "data/getdata",
-  async ({ page, view, start, end }) =>
+  async ({ page, start, end }) =>
     (
       await axios(
         `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/all-agents/${page}/daily/${start}/${end}`

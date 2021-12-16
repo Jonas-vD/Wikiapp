@@ -27,7 +27,7 @@ class InfoCard {
         <use href="#icon-newspaper"></use>
         </svg>
         </span>
-        <h2 class="name">&nbsp</h2>
+        <h2 class="name"></h2>
         </div>
         <div>
         <p>Total views</p>
@@ -36,7 +36,7 @@ class InfoCard {
         <use href="#icon-eye"></use>
         </svg>
         </span>
-        <h2 class="totalviews">0</h2>
+        <h2 class="totalviews"></h2>
         </div>
         <div>
         <p>Most views on a day</p>
@@ -45,7 +45,7 @@ class InfoCard {
         <use href="#icon-trophy"></use>
         </svg>
         </span>
-        <h2 class="mostviews">0</h2>
+        <h2 class="mostviews"></h2>
         </div>
         <div class="wikilink">
         <p>Link to page</p>
@@ -85,17 +85,25 @@ class InfoCard {
     this.totalViews.innerHTML = `${totalViews}`;
     this.mostViews.innerHTML = `${mostViews}`;
     this.articleName.innerHTML = `${articleName}`;
-
-    this.urlPage.innerHTML = `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">en.wikipedia.org/wiki/${articleNames[0]}</a>`;
+    if (articleNames[0]) {
+      this.urlPage.insertAdjacentHTML(
+        "beforeend",
+        `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">${articleNames[0]}</a>`
+      );
+    }
 
     const { data, countries, months, loading, error } = store.getState();
 
     if (loading) {
       this.articleName.style.display = "none";
       this.urlPage.style.display = "none";
+      this.mostViews.style.display = "none";
+      this.totalViews.style.display = "none";
     } else {
       this.articleName.style.display = "";
       this.urlPage.style.display = "";
+      this.mostViews.style.display = "";
+      this.totalViews.style.display = "";
     }
   }
   styling() {

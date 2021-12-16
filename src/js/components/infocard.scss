@@ -1,25 +1,57 @@
 @use "../../icons/style.css";
+@use "../../css/base/mixins" as *;
+@use "../../css/base/variables" as *;
+@use "../../css/base/reset";
+@use "../../css/base/fonts";
+
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 .info__card {
+  width: 100%;
   div {
     display: grid;
     grid-template-columns: 40px 1fr;
     grid-column-gap: 10px;
     margin-bottom: 20px;
+    position: relative;
     p {
       grid-column: span 2;
       margin-bottom: 5px;
     }
-    h2,
-    a {
+    h2 {
       font-family: "Bebas Neue", cursive;
-      font-size: 30px;
+      font-size: 36px;
+      margin-left: 15px;
     }
     span {
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 1px solid $blue;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+    }
+
+    // &::after {
+    //   content: "";
+    //   display: block;
+    //   position: absolute;
+    //   height: 1px;
+    //   width: 100%;
+    //   background-color: $blue;
+    //   bottom: 0;
+    // }
+  }
+  .wikilink {
+    span {
+      margin-bottom: 0px;
+    }
+    a {
+      font-family: "Bebas Neue", cursive;
+      font-size: 30px;
+      color: $blue;
+      margin-left: 15px;
     }
   }
 }

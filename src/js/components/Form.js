@@ -75,7 +75,7 @@ class Form {
     this.form = this.holder.querySelector(".form");
     this.input = this.holder.querySelector(".input");
     this.buttonRef = this.form.querySelector(".button.is-primary");
-    this.selectViews = this.form.querySelector(".views");
+    // this.selectViews = this.form.querySelector(".views");
     this.searchBar = this.form.querySelector(".search");
     this.startDate = this.form.querySelector(".startdate");
     this.endDate = this.form.querySelector(".enddate");
@@ -109,9 +109,9 @@ class Form {
     //formsubmit
     this.form.onsubmit = (e) => {
       e.preventDefault();
-      const searchViews = this.selectViews
-        .querySelector("select")
-        .value.toLowerCase();
+      // const searchViews = this.selectViews
+      //   .querySelector("select")
+      //   .value.toLowerCase();
       const searchValue = this.searchBar.value
         .split(" ")
         .map(
@@ -123,11 +123,10 @@ class Form {
       const startDate = this.startDate.value.replaceAll("-", "");
       const endDate = this.endDate.value.replaceAll("-", "");
 
-      if (searchValue && searchViews && startDate && endDate) {
+      if (searchValue && startDate && endDate) {
         store.dispatch(
           getData({
             page: searchValue,
-            view: searchViews,
             start: startDate,
             end: endDate,
           })
