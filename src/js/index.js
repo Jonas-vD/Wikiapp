@@ -16,7 +16,7 @@ InfoCard(infoRef);
 // ChartCard(chartRef);
 
 let myChart = new Chart(chartRef, {
-  type: "bar",
+  type: "pie",
   data: {
     labels: [],
     datasets: [
@@ -59,7 +59,6 @@ const render = () => {
   myChart.data.labels = [];
   const timestamps = store.getState().data.map((obj) => obj.timestamp);
   const amountViews = store.getState().data.map((obj) => obj.views);
-  //   myChart.data.labels.push(...timestamps);
   myChart.data.labels.splice(0, myChart.data.labels.length, ...timestamps);
 
   myChart.data.datasets[0].data.splice(

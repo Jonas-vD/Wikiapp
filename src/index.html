@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wikiviews</title>
-    <link rel="icon" type="image/x-icon" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/x-icon" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
-
   </head>
   <body>
     <include src="./symbol-defs.svg"></include>
@@ -19,19 +18,51 @@
       <header class="container">
         <div class="logo"></div>
         <h1>Page views per page</h1>
-        
       </header>
       <section class="container">
-        <div class="info">
-          
-        </div>
+        <div class="info"></div>
         <div class="chart">
+          <div class="navchart">
+            <ul>
+              <li>
+                <span>
+                  <svg class="icon icon-stats-bars">
+                    <use href="#icon-stats-bars"></use>
+                  </svg>
+                </span>
+                <p>Bar</p>
+              </li>
+              <li>
+                <span>
+                  <svg class="icon icon-pie-chart">
+                    <use href="#icon-pie-chart"></use>
+                  </svg>
+                </span>
+                <p>Pie</p>
+              </li>
+              <li>
+                <span>
+                  <svg class="icon icon-stats-dots">
+                    <use href="#icon-stats-dots"></use>
+                  </svg>
+                </span>
+                <p>Line</p>
+              </li>
+              <li>
+                <span>
+                  <svg class="icon icon-pie-chart">
+                    <use href="#icon-pie-chart"></use>
+                  </svg>
+                </span>
+                <p>Polar</p>
+              </li>
+            </ul>
+          </div>
           <canvas id="myChart"></canvas>
         </div>
       </section>
     </main>
-      
-    </div>
+
     <script type="module" src="./js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </body>

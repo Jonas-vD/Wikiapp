@@ -57,6 +57,38 @@ main {
     }
     .info {
       display: flex;
+      height: fit-content;
+    }
+    .chart {
+      .navchart {
+        margin-bottom: 30px;
+        ul {
+          display: flex;
+          justify-content: center;
+          li {
+            margin-right: 30px;
+            padding: 10px 30px;
+            background-color: $red;
+            border-radius: 5px;
+            color: white;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            &:hover {
+              background-color: crimson;
+            }
+            span {
+              margin-right: 15px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+      #myChart {
+        height: 100px;
+      }
     }
   }
 }
