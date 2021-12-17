@@ -1,4 +1,4 @@
-![Logo wikiviews](src/images/wikiviewsLogo.png£)
+![Logo wikiviews](src/images/wikiviewsLogo.png)
 
 # WIKIVIEWS
 
@@ -36,3 +36,7 @@ You can choose between four different types of charts to show the data.
 4. Polar chart
 
 ![Charts](src/images/wikiviewsCharts.png)
+
+[Link to Wikiviews](https://wikiviews.surge.sh/)
+
+Thanks for watching!
