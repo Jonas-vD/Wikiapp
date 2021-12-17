@@ -1,4 +1,4 @@
-![Logo wikiviews](src/images/wikiviewsLogo.png)
+![Logo wikiviews](src/images/wikiviewsLogo.png£)
 
 # WIKIVIEWS
 
@@ -9,6 +9,30 @@ The info that you get will be shown in a chart.
 
 ## HOW TO USE
 
-Give a value in the search bar, pick a start- and enddate and submit.
+1. Give a value in the search bar.
+2. pick a start- and enddate.
+3. Submit your search.
+4. Change the type of chart
+5. Go to the wikipedia page.
 
-![searchbar](src/images/wikiviewsSearch.png)
+![Searchbar](src/images/wikiviewsSearch.png)
+
+## WHAT IS THE DATA
+
+1. Name of the page you searched
+2. Total of views between start- and enddate.
+3. The most views on one day.
+4. The URL to the wikipedia page.
+
+![Infocard](src/images/wikiviewsData.png)
+
+## TYPE OF CHART
+
+You can choose between four different types of charts to show the data.
+
+1. Bar chart
+2. Line chart
+3. Pie chart
+4. Polar chart
+
+![Charts](src/images/wikiviewsCharts.png)
