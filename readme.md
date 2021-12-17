@@ -1,4 +1,4 @@
-![Logo wikiviews](src/images/wikiviewsLogo.png =x100)
+![Logo wikiviews](src/images/wikiviewsLogo.png)
 
 # WIKIVIEWS
 
