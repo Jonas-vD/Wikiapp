@@ -54,7 +54,9 @@ class InfoCard {
         <use href="#icon-sphere"></use>
         </svg>
         </span>
+        <div class="url">
         
+        </div>
         </div>
         
     </div>
@@ -64,7 +66,7 @@ class InfoCard {
     this.articleName = this.holder.querySelector(".name");
     this.totalViews = this.holder.querySelector(".totalviews");
     this.mostViews = this.holder.querySelector(".mostviews");
-    this.urlPage = this.holder.querySelector(".wikilink");
+    this.urlPage = this.holder.querySelector(".url");
   }
   events() {}
   render() {
@@ -85,11 +87,9 @@ class InfoCard {
     this.totalViews.innerHTML = `${totalViews}`;
     this.mostViews.innerHTML = `${mostViews}`;
     this.articleName.innerHTML = `${articleName}`;
+
     if (articleNames[0]) {
-      this.urlPage.insertAdjacentHTML(
-        "beforeend",
-        `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">${articleNames[0]}</a>`
-      );
+      this.urlPage.innerHTML = `<a href="https://en.wikipedia.org/wiki/${articleNames[0]}" target="_blanc">${articleNames[0]}</a>`;
     }
 
     const { data, countries, months, loading, error } = store.getState();
